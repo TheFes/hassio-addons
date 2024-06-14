@@ -175,5 +175,8 @@ mkdir /usr/lib/php82/modules/opcache
 echo "Here is your web file architecture."
 ls -l $webrootdocker
 
+echo "Enabling rewrite module...."
+sed -i 's/#LoadModule rewrite_module/LoadModule rewrite_module/g' /etc/apache2/httpd.conf
+
 echo "Starting Apache2..."
 exec /usr/sbin/httpd -D FOREGROUND
